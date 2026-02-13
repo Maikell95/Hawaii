@@ -1,0 +1,20 @@
+{
+  "name": "Hawaii Explorer",
+  "short_name": "Hawaii",
+  "description": "Explora Hawaii - Una experiencia interactiva por las islas del paraíso",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A1628",
+  "theme_color": "#023E8A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "travel"],
+  "lang": "es"
+}
