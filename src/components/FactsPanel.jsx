@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { funFacts, stateSymbols, generalInfo, islands } from '../data/hawaiiData'
+import SafeImage from './SafeImage'
 
 const categoryIcons = {
   'Geografía': '🌋',
@@ -193,12 +194,11 @@ function SymbolRow({ icon, label, value, desc, image }) {
       </div>
       {image && (
         <div className="mt-2 ml-8 rounded-xl overflow-hidden h-24">
-          <img
+          <SafeImage
             src={image}
             alt={value}
-            className="w-full h-full object-cover"
-            loading="lazy"
-            onError={(e) => { e.target.parentElement.style.display = 'none' }}
+            className="w-full h-full"
+            fallbackEmoji={icon}
           />
         </div>
       )}

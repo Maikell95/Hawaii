@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { historicalTimeline } from '../data/hawaiiData'
+import SafeImage from './SafeImage'
 
 const eraColors = {
   'Antigua': 'from-amber-500/20 to-amber-700/10 border-amber-500/30',
@@ -59,15 +60,12 @@ function HistoryPanel() {
             <div className={`glass rounded-2xl overflow-hidden border ${eraColors[event.era] || 'border-white/10'} bg-gradient-to-br`}>
               {/* Event image */}
               {event.image && (
-                <div className="w-full h-32 overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => { e.target.style.display = 'none' }}
-                  />
-                </div>
+                <SafeImage
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-32"
+                  fallbackEmoji={event.icon}
+                />
               )}
 
               <div className="p-4">

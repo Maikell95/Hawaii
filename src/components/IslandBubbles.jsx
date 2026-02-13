@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import SafeImage from './SafeImage'
 
 const bubbleVariants = {
   hidden: { opacity: 0, scale: 0.6, y: 30 },
@@ -53,10 +54,11 @@ export default function IslandBubbles({ island, onClose }) {
             style={{ borderColor: `${island.color}30` }}
           >
             <div className="relative h-48 overflow-hidden">
-              <img
+              <SafeImage
                 src={images[0]?.url}
                 alt={images[0]?.caption || island.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                fallbackEmoji={island.emoji}
                 loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
@@ -120,11 +122,11 @@ export default function IslandBubbles({ island, onClose }) {
               style={{ borderColor: `${island.color}20` }}
             >
               <div className="relative h-36">
-                <img
+                <SafeImage
                   src={images[1]?.url}
                   alt={images[1]?.caption}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  className="w-full h-full"
+                  fallbackEmoji={island.emoji}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <span className="absolute bottom-2 left-2 right-2 text-[10px] text-white/90 font-medium bg-black/50 px-2 py-1 rounded-lg backdrop-blur-sm text-center">
@@ -213,11 +215,11 @@ export default function IslandBubbles({ island, onClose }) {
                 style={{ borderColor: `${island.color}20` }}
               >
                 <div className="relative h-28">
-                  <img
+                  <SafeImage
                     src={img.url}
                     alt={img.caption}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
+                    className="w-full h-full"
+                    fallbackEmoji={island.emoji}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent" />
                   <span className="absolute bottom-2 left-2 right-2 text-[10px] text-white/90 font-medium bg-black/50 px-2 py-1 rounded-lg backdrop-blur-sm text-center">
